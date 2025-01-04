@@ -17,8 +17,5 @@
     "url": "https://github.com/KustiKaljoMM23/mm23learnnode/issues"
   },
   "homepage": "https://github.com/KustiKaljoMM23/mm23learnnode#readme",
-  "description": "",
-  "dependencies": {
-    "boxen": "^8.0.1"
-  }
+  "description": ""
 }
