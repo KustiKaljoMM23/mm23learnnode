@@ -27,11 +27,11 @@ module.exports = {
                 use: [
                     {
                         // Adds CSS to the DOM by injecting a '<style>' tag
-                        loader: 'style-loader'
+                        loader: 'style-loader',
                     },
                     {
                         // Interprets '@import' and 'url()' like 'import/require()'
-                        loader: 'css-loader'
+                        loader: 'css-loader',
                     },
                     {
                         // Loader for webpack to process CSS with PostCSS
@@ -49,17 +49,26 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             sassOptions: {
-                                quietDeps: true
-                            }
-                        }
-                    }
-                ]
-            }
+                                quietDeps: true,
+                            },
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.njk$/,
+                use: [
+                    {
+                        loader: 'simple-nunjucks-loader',
+                        options: {},
+                    },
+                ],
+            },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
-        })
+            template: './src/index.njk',
+        }),
     ],
 };
