@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
+import ItemList from './ItemList.vue';
 let newItem = ref('');
 let items = ref([
     {text: 'piim', done: true},
@@ -35,29 +36,9 @@ let toDoItems = computed(() => items.value.filter(item => !item.done));
             </div>
         </div>
         <div class="content">
-            <h1>All items</h1>
-            <ul>
-                <li v-for="item in items">
-                    {{ item.text }}
-                    <input type="checkbox" v-model="item.done">
-                </li>
-            </ul>
-
-            <h1>Done items</h1>
-            <ul>
-                <li v-for="item in doneItems">
-                    {{ item.text }}
-                    <input type="checkbox" v-model="item.done">
-                </li>
-            </ul>
-
-            <h1>ToDo items</h1>
-            <ul>
-                <li v-for="item in toDoItems">
-                    {{ item.text }}
-                    <input type="checkbox" v-model="item.done">
-                </li>
-            </ul>
+            <ItemList :items="items" title="All Items"></ItemList>
+            <ItemList :items="doneItems" title="Done Items"></ItemList>
+            <ItemList :items="toDoItems" title="ToDo Items"></ItemList>
         </div>
     </div>
 </template>
