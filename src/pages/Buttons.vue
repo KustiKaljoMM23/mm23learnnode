@@ -4,6 +4,6 @@ import Btn from '../components/Btn.vue';
 <template>
     <div class="container mt-2">
         <Btn color="primary" dark size="large" rounded state="loading">Button is cool</Btn>
-        <button class="button is-loading">Test button</button>
+        <a href="https://google.com" @click.prevent="console.log('hello')">Google</a>
     </div>
 </template>
