@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 let props = defineProps({
-color: {
+    color: {
         type: String,
         required: false,
         validator(value, props) {
@@ -12,19 +12,32 @@ color: {
                 'success',
                 'warning',
                 'danger',
-                'white',
                 'light',
-                'dark',
-                'text',
-                'ghost',
             ].includes(value);
         }
     },
+    light: {
+        type: Boolean,
+        required: false,
+    },
+
 });
 
+let classNames = computed(() => {
+    let names = [];
+    if(props.color){
+        names.push('is-' + props.color);
+    }
+    if(props.light){
+        names.push('is-light');
+    }
+    console.log(props);
+    return names.join(' ');
+})
 </script>
 <template>
-    <button class="notification" :class="classNames">
-        <slot></slot>
-    </button>
+   <div class="notification" :class="classNames">
+  <button class="delete"></button>
+  <slot></slot>
+</div>
 </template>
