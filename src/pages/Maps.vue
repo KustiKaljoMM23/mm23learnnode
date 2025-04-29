@@ -13,14 +13,22 @@ onMounted(() => {
     }).addTo(map);
 
     let marker = L.marker([59.4270, 24.7436]).addTo(map);
+
+    let polygon = L.polygon([
+    [59.4277, 24.6312],
+    [59.4273, 24.6319],
+    [59.4270, 24.6312]
+]).addTo(map);
 });
 
 function goTo(coords, zoom){
     map.flyTo(coords, zoom);
 }
+
 </script>
 <template>
     <button class="button is-primary" @click="goTo([59.4270, 24.7436], 18)">Go To School</button>
+    <button class="button is-primary" @click="goTo([59.4273, 24.6313], 18)">Go To Home</button>
     <div id="map"></div>
 </template>
 <style scoped>
